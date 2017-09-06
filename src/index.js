@@ -19,6 +19,16 @@ const yScale = d3.scaleLinear()
   .domain([0, d3.max(data, (d) => d[1])])
   .range([height - padding, padding]);
 
+// Bottom time axis
+svg.append('g')
+  .attr('transform', `translate(0, ${height - padding})`)
+  .call(d3.axisBottom(xScale));
+
+// Left GDP axis
+svg.append('g')
+  .attr('transform', `translate(${padding}, 0)`)
+  .call(d3.axisLeft(yScale));
+
 svg.selectAll('rect')
   .data(data)
   .enter()
