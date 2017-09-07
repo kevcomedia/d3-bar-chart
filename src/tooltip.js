@@ -13,7 +13,7 @@ export function createTooltip() {
     setData([date, gdp]) {
       tooltip.html(`
         <p class="tooltip-gdp">${formatGDP(gdp)}</p>
-        <p class="tooltip-date">${date}</p>
+        <p class="tooltip-date">${formatDate(date)}</p>
       `);
       return this;
     },
@@ -47,4 +47,32 @@ function formatGDP(gdp) {
     useGrouping: true
   };
   return `${gdp.toLocaleString('en-us', options)} Billion`;
+}
+
+/**
+ * Converts a date string into a user-friendly representation.
+ * @param {string} dateString The date string to format. It should be a date
+ * string that can be passed to a `new Date()` call.
+ * @return {string} A string with the format `Month, Year`
+ * (example: August, 2000)
+ */
+function formatDate(dateString) {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const date = new Date(dateString);
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  return `${month}, ${year}`;
 }
