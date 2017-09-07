@@ -1,13 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
+  devServer: {
+    hot: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
@@ -21,6 +26,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.s?css$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
