@@ -1,3 +1,23 @@
-body {
-  background-color: orange;
+$barBackground: #0090c1;
+$tooltipBackground: #38aecc;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#chart {
+  rect {
+    fill: $barBackground;
+
+    &:hover {
+      fill: lighten($barBackground, 15%);
+    }
+  }
+}
+
+.tooltip {
+  background-color: $tooltipBackground;
+  position: absolute;
 }
