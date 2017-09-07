@@ -4,6 +4,8 @@ import {data} from '../data/GDP-data.json';
 import 'normalize.css';
 import './styles.scss';
 
+import {createTooltip} from './tooltip.js';
+
 const width = 1000;
 const height = 500;
 const padding = 50;
@@ -32,10 +34,7 @@ svg.append('g')
   .attr('transform', `translate(${padding}, 0)`)
   .call(d3.axisLeft(yScale));
 
-const tooltip = d3.select('body')
-  .append('div')
-  .attr('class', 'tooltip')
-  .style('opacity', 0);
+const tooltip = createTooltip();
 
 svg.selectAll('rect')
   .data(data)
@@ -45,17 +44,11 @@ svg.selectAll('rect')
   .attr('y', (d) => yScale(d[1]))
   .attr('width', barWidth)
   .attr('height', (d) => height - padding - yScale(d[1]))
-  .on('mouseover', ([date, gdp]) => {
-    tooltip.html(`<p>${date}</p><p>${gdp}</p>`)
-      .style('left', `${d3.event.pageX + 10}px`)
-      .style('top', `${d3.event.pageY - 100}px`);
-
-    tooltip.transition()
-      .duration(50)
-      .style('opacity', .9);
+  .on('mouseover', (d) => {
+    tooltip.setData(d)
+      .setLocationOnPage(d3.event)
+      .setOpacity(.95, 50);
   })
   .on('mouseout', () => {
-    tooltip.transition()
-      .duration(150)
-      .style('opacity', 0);
+    tooltip.setOpacity(0, 150);
   });
