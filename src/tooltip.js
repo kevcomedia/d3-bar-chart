@@ -12,7 +12,7 @@ export function createTooltip() {
   return {
     setData([date, gdp]) {
       tooltip.html(`
-        <p class="tooltip-gdp">${gdp}</p>
+        <p class="tooltip-gdp">${formatGDP(gdp)}</p>
         <p class="tooltip-date">${date}</p>
       `);
       return this;
@@ -32,3 +32,19 @@ export function createTooltip() {
     }
   };
 };
+
+/**
+ * Returns a user-friendly representation of the GDP.
+ *
+ * @param {number} gdp The GDP value to format (in billions)
+ * @return {string} The GDP with the following format: `${gdp} Billion`
+ */
+function formatGDP(gdp) {
+  const options = {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'symbol',
+    useGrouping: true
+  };
+  return `${gdp.toLocaleString('en-us', options)} Billion`;
+}
