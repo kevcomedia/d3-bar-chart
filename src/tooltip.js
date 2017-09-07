@@ -11,8 +11,10 @@ export function createTooltip() {
 
   return {
     setData([date, gdp]) {
-      tooltip.html(`<p class="tooltip-date">${date}</p>
-        <p class="tooltip-gdp">${gdp}</p>`);
+      tooltip.html(`
+        <p class="tooltip-gdp">${gdp}</p>
+        <p class="tooltip-date">${date}</p>
+      `);
       return this;
     },
     setLocationOnPage({pageX = 0, pageY = 0} = {}) {

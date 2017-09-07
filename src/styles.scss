@@ -7,6 +7,10 @@ $tooltipBackground: #38aecc;
   box-sizing: border-box;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 #chart {
   rect {
     fill: $barBackground;
@@ -19,5 +23,21 @@ $tooltipBackground: #38aecc;
 
 .tooltip {
   background-color: $tooltipBackground;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,.6);
+  padding: 10px;
   position: absolute;
+
+  &-gdp {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+
+  &-date {
+    margin: 0;
+  }
 }
+
+
