@@ -9,12 +9,17 @@ export function createTooltip() {
     .attr('class', 'tooltip')
     .style('opacity', 0);
 
+  tooltip.append('p')
+    .attr('class', 'tooltip-gdp');
+  tooltip.append('p')
+    .attr('class', 'tooltip-date');
+
   return {
     setData([date, gdp]) {
-      tooltip.html(`
-        <p class="tooltip-gdp">${formatGDP(gdp)}</p>
-        <p class="tooltip-date">${formatDate(date)}</p>
-      `);
+      tooltip.selectAll('p')
+        .data([formatGDP(gdp), formatDate(date)])
+        .text((d) => d);
+
       return this;
     },
     setLocationOnPage({pageX = 0, pageY = 0} = {}) {
