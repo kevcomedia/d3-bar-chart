@@ -14,6 +14,7 @@ body {
   background: $bodyBackground;
   background: linear-gradient(90deg, $bodyBackground, lighten($bodyBackground, 25%));
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -42,6 +43,7 @@ body {
   box-shadow: 0 0 5px rgba(0,0,0,.6);
   padding: 10px;
   position: absolute;
+  width: 200px;
 
   &-gdp {
     font-size: 20px;
