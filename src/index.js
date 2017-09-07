@@ -1,5 +1,5 @@
 const d3 = require('d3');
-import {data} from '../data/GDP-data.json';
+import {data, description} from '../data/GDP-data.json';
 
 import 'normalize.css';
 import './styles.scss';
@@ -52,3 +52,7 @@ svg.selectAll('rect')
   .on('mouseout', () => {
     tooltip.setOpacity(0, 150);
   });
+
+d3.select('.description')
+  // Make it so the URL in the description is in its own line
+  .html(description.replace(' - ', '<br>'));
