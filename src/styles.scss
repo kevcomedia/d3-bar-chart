@@ -1,3 +1,4 @@
+$bodyBackground: #094d92;
 $barBackground: #0090c1;
 $tooltipBackground: #38aecc;
 
@@ -8,7 +9,16 @@ $tooltipBackground: #38aecc;
 }
 
 body {
+  background: $bodyBackground;
+  background: linear-gradient(90deg, $bodyBackground, lighten($bodyBackground, 25%));
   font-family: sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,.6);
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 #chart {
@@ -43,4 +53,8 @@ body {
 h1,
 .description {
   text-align: center;
+}
+
+.description {
+  font-size: 13px;
 }

@@ -18,11 +18,11 @@ const svg = d3.select('#chart')
 
 const xScale = d3.scaleTime()
   .domain([new Date(data[0][0]), new Date(data[data.length - 1][0])])
-  .range([padding, width - padding]);
+  .range([padding, width - (padding / 2)]);
 
 const yScale = d3.scaleLinear()
   .domain([0, d3.max(data, (d) => d[1])])
-  .range([height - padding, padding]);
+  .range([height - padding, padding / 2]);
 
 // Bottom time axis
 svg.append('g')
