@@ -32,6 +32,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
-    "d3": "^4.10.2"
+    "d3": "^4.10.2",
+    "normalize.css": "^7.0.0"
   }
 }

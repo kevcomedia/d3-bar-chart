@@ -1,6 +1,7 @@
 const d3 = require('d3');
 import {data} from '../data/GDP-data.json';
 
+import 'normalize.css';
 import './styles.scss';
 
 const width = 1000;
