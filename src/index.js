@@ -1,6 +1,8 @@
 const d3 = require('d3');
 import {data} from '../data/GDP-data.json';
 
+import './styles.scss';
+
 const width = 1000;
 const height = 500;
 const padding = 50;
