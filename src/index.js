@@ -1,9 +1,6 @@
 const d3 = require('d3');
 import {data, description} from '../data/GDP-data.json';
 
-import 'normalize.css';
-import './styles.scss';
-
 import {createTooltip} from './tooltip.js';
 
 const width = 1000;
