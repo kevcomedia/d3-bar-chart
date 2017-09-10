@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
@@ -8,15 +8,11 @@ module.exports = {
     index: './src/index.js',
     styles: './src/styles.js'
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true
-  },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new WebpackBuildNotifierPlugin({
       title: 'D3 Bar Chart',
       suppressSuccess: true
