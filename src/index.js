@@ -15,7 +15,7 @@ const padding = {
   top: 25,
 };
 
-const barWidth = width / data.length;
+const barWidth = Math.ceil(width / data.length);
 
 const svg = d3.select('#chart')
   .attr('width', width)
