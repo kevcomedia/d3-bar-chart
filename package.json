@@ -1,6 +1,6 @@
 {
   "name": "d3-bar-chart",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "freeCodeCamp D3 bar chart project",
   "main": "index.js",
   "scripts": {
