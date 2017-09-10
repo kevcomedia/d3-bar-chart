@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$bodyBackground: #094d92;
+$barColor: #0090c1;
+$tooltipBackground: #38aecc;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $bodyBackground;
+  background: linear-gradient(90deg, $bodyBackground, lighten($bodyBackground, 25%));
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,.6);
+  margin: 0 auto;
+  width: 1100px;
+}
+
+#chart {
+  display: block;
+  margin: auto;
+
+  rect {
+    fill: $barColor;
+
+    &:hover {
+      fill: lighten($barColor, 15%);
+    }
+  }
+}
+
+.tooltip {
+  background-color: $tooltipBackground;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,.6);
+  padding: 10px;
+  position: absolute;
+  width: 170px;
+
+  &-gdp {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+
+  &-date {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+h1,
+.description {
+  text-align: center;
+}
+
+.description {
+  font-size: 13px;
+}
